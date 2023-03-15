@@ -1,0 +1,13 @@
+/* selecting h1 tag */
+h1{   
+       /*changing text color to red  */
+    color: red;
+}
+
+/* class selector */
+.completed{
+    /* changing text color to grey */
+    color: gray;
+    /* decorating text with a line through the text */
+    text-decoration: line-through;
+}

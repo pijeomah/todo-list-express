@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- content being shown on the page -->
+<body> 
+    <!-- lines 13 -21 are typos -->
+    <!DOCTYPE html>      
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Todo List: </h1> <!--Main title of the page -->
+
+     <ul class="todoItems"> <!--create unordered list with class of todoITems-->
+
+        <!-- Use Ejs to start a for loop -->
+    <% for(let i=0; i < items.length; i++) {%>
+
+        <!-- the li holds list items with class of item -->
+        <li class="item">
+            <!-- if statement decides if an item in the array with a competed property is true -->
+            <% if(items[i].completed === true) {%>
+                <!-- inline element with a class completed to  hold task on tdl  -->
+                <span class='completed'><%= items[i].thing %></span>
+                <!-- ejs for default statement -->
+            <% }else{ %>
+                <!-- displaysthe default state of the list item (NO CLASS) -->
+                <span><%= items[i].thing %></span>
+                <!-- closing else statment -->
+            <% } %> 
+                <!-- span holding font awesome trash cans -->
+            <span class='fa fa-trash'></span>
+        <!--closing list item  -->
+       </li>
+       <!-- closing ejs for loop -->
+    <% } %> 
+    <!-- closing ul -->
+    </ul>
+
+    <!-- heading tag with text and ejs to display no of tasks left -->
+    <h2>Left to do: <%= left %></h2>
+<!-- h2 with text -->
+    <h2>Add A Todo:</h2>
+    <!-- creating a form with a POST method that has an addTodo route  -->
+    <form action="/addTodo" method="POST">
+        <!--creates an input box with text and name for easy reference lalter  -->
+        <input type="text" placeholder="Thing   To Do" name="todoItem">
+        <!-- submit button for the form -->
+        <input type="submit">
+        <!-- closing the form  -->
+    </form>
+    
+    <!-- linking to main.js in the js file in the public folder -->
+    <script src='js/main.js'></script>
+    <!-- closing body tag -->
+</body>
+<!-- closing html file/ -->
+</html>
